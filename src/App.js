@@ -1,11 +1,16 @@
-import React from "react";
-import "./style.css";
+import React, { useState } from 'react';
+import './style.css';
 
 export default function App() {
+  const [count, setCount] = useState(0);
   return (
-    <div>
-      <h1>Hello StackBlitz!</h1>
-      <p>Start editing to see some magic happen :)</p>
-    </div>
+    <>
+      <h1>Count: {count}</h1>
+      <Add set={setCount} />
+    </>
   );
+}
+
+function Add({ set }) {
+  return <button onClick={() => set((prev) => prev + 1)}>Add</button>;
 }
